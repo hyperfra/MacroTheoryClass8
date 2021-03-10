@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>reveal.js - Class 8</title>
+
+		<link rel="stylesheet" href="plugin/reveal.css">
+		<link rel="stylesheet" href="plugin/black2.css" id="theme">
+        <link rel="stylesheet" href="plugin/monokai.css">
+        <link rel="stylesheet" href="plugin/title-footer.css">
+       
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<div class="slides">
+
+
+                <!-- Slides are separated by three dashes (quick 'n dirty regular expression) -->
+                <section data-markdown data-separator="\n---\n" data-separator-vertical="^\n--\n">
+                    <script type="text/template">
+                        <!-- .slide: style="text-align: left;" -->
+                        ## Macroeconomic Theory
+                        ### Francesco Franco - Nova SBE
+                        #### T3 2021 
+
+                        ---
+
+                        <!-- .slide: style="text-align: left;" -->
+                        ### Notes on the NKM solution
+                        Consider the NKM model presented in class where the demand block is composed by the monetary policy rule is
+                        
+                        $$i_{t}=\rho+\phi_{\pi}\pi_{t}+v_{t}$$
+
+                        and the dynamic IS (a Euler equation)
+
+                        <span>
+                            \[\begin{aligned}
+                            \widetilde{y}_{t}=E_{t}\{\widetilde{y}_{t+1}\}-\frac{1}{\sigma}(i_{t}-E_{t}\{\pi_{t+1}\}-r_{t}^{n})
+                            \end{aligned} \]
+                        <span>
+
+                        while the supply bloc is the composed by the New keynesian Phillips Curve
+
+                        $$\pi_{t}=\beta E_{t}\{\pi_{t+1}\}+\kappa\widetilde{y}_{t}$$
+
+                        ---
+                        <!-- .slide: style="text-align: left;" -->
+                        ### Notes on the NKM solution
+
+                        Remember that 
+                        $\tilde{y_{t}}$ is the output gap and $r_{t}^{n}$ is the natural rate of the real interest rate, namely the rate that implies that the output gap is nihil,
+                        $r_{t}^{n}=\rho-\sigma(1-\rho_{z})\psi_{yz}z_{t}$.
+                        
+                        ---
+                         <!-- .slide: style="text-align: left;" -->
+                         ### Notes on the NKM solution
+
+                         Notice that there are three endogenous variables $i_{t}$,$\pi_{t}$,$\tilde{y_{t}}$ and two exogenous variables $z_{t}$,$v_{t}$.
+                         We first reduce the system by substituting the monetary policy rule into the IS, basically reducing the demand block
+                        
+                        <span>
+                            \[\begin{aligned}
+                            \widetilde{y}_{t}=E_{t}\{\widetilde{y}_{t+1}\}-\frac{1}{\sigma}(\rho+\phi_{\pi}\pi_{t}+v_{t}-E_{t}\{\pi_{t+1}\}-r_{t}^{n})
+                            \end{aligned} \]
+                        <span>
+                            
+                        while the supply bloc is the composed by the New keynesian Phillips Curve
+                        
+                        <span>
+                            \[\begin{aligned}   
+                            \pi_{t}=\beta E_{t}\{\pi_{t+1}\}+\kappa\widetilde{y}_{t}
+                            \end{aligned} \]
+                        <span>
+
+                        ---
+
+                         <!-- .slide: style="text-align: left;" -->
+                         ### Notes on the NKM solution
+
+                        Assume the solution has a unique solution of the form that the endogenous variables repsond to the state variables (only exogenous here)
+                        
+                        $$\tilde{y_{t}}	=\psi_{yu}u_{t}$$ 
+                        
+                        $$\pi_{t}	=\psi_{\pi u}u_{t}$$
+                            
+                        where $u_{t}=v_{t}-\left(r_{t}^{n}-\rho\right)$ the difference between the two shocks.
+                        
+                        Now we need to determine the unknown coefficients $\psi_{yu}$,$\psi_{\pi u}$ through guess and verify.
+
+                        ---
+                        
+                         <!-- .slide: style="text-align: left;" -->
+                         ### Notes on the NKM solution
+                        
+
+                        For simplicity consider the case where $z_{t}=0$, namely no technology shock and therefore $r_{t}^{n}=\rho$ and $u_{t}=v_{t}$ 
+                        so that we only have a monetary shock that we assume to be iid $v_{t}\sim N(0,1)$.
+                        To find the unknown coefficients plugour guess in the model:
+                        
+                        <span>
+                            \[\begin{aligned}   
+                            \widetilde{y}_{t}	=E_{t}\{\widetilde{y}_{t+1}\}-\frac{1}{\sigma}(\phi_{\pi}\pi_{t}+u_{t}-E_{t}\{\pi_{t+1}\})
+                            \end{aligned} \]
+                        <span>
+
+                        <span>
+                            \[\begin{aligned}   
+                            \widetilde{y}_{t}=E_{t}\{\psi_{yu}u_{t+1}\}-\frac{1}{\sigma}(\phi_{\pi}\psi_{\pi u}u_{t}+u_{t}-E_{t}\{\psi_{\pi u}u_{t+1}\})
+                            \end{aligned} \]
+                        <span>
+
+                        <span>
+                            \[\begin{aligned}   
+                            \widetilde{y}_{t}=-\frac{1}{\sigma}(\phi_{\pi}\psi_{\pi u}+1)u_{t}
+                            \end{aligned} \]
+                        <span>
+
+                        ---
+                        
+                         <!-- .slide: style="text-align: left;" -->
+                         ### Notes on the NKM solution
+                      
+                        And using the guess in the NKPC
+
+                         <span>
+                            \[\begin{aligned}   
+                            \pi_{t}=\beta E_{t}\{\pi_{t+1}\}+\kappa\widetilde{y}_{t}
+                            \end{aligned} \]
+                        <span>
+
+                        <span>
+                            \[\begin{aligned}   
+                            \pi_{t}=\beta E_{t}\{\psi_{\pi u}u_{t+1}\}+\kappa\psi_{yu}u_{t}
+                            \end{aligned} \]
+                        <span>
+
+                        <span>
+                            \[\begin{aligned}   
+                            \pi_{t}=\kappa\psi_{yu}u_{t}
+                            \end{aligned} \]
+                        <span>
+
+                        ---
+                        
+                        <!-- .slide: style="text-align: left;" -->
+                        ### Notes on the NKM solution
+
+                        Therefore to be consistent with our guess we have that 
+                         
+                        $$\psi_{yu}	=-\frac{1}{\sigma}(\phi_{\pi}\psi_{\pi u}+1)$$
+
+                        $$\psi_{\pi u}	=\kappa\psi_{yu}$$
+
+                        for every $u_{t}$. These are two equatrions in the the two unknowns coefficients that you can easily solve and find 
+                        
+                        $$\psi_{yu}	=-\frac{1}{\sigma+\phi_{\pi}\kappa}$$
+                        
+                        $$\psi_{\pi u}	=-\frac{\kappa}{\sigma+\phi_{\pi}\kappa}$$
+
+                        ---
+                        
+                        <!-- .slide: style="text-align: left;" -->
+                        ### Notes on the NKM solution
+
+                        The solution says that an unepected increase in $i_{t}$ , through a positive $v_{t}$ shock (a contractionary monetary policy)
+                        reduces inflation and the outoput gap. You can try to solve the model adding persistence in 
+                        $v_{t}=\rho v_{t-1}+\epsilon_{t}$. In this case the expectations are not zero for example $E_{t}\{\pi_{t+1}\}=\psi_{\pi u}\rho u_{t}$.
+                         
+                         
+                        ---
+                        
+                        <!-- .slide: style="text-align: left;" -->
+                        ### Notes on the NKM solution
+
+                        Now we need to be sure that this system has a unique solution. Formally to check that this is the case we need to check that the eigenvalues of matrix
+                        $A_{T}$ below are smaller than unity. You are not required to know this for the exam but it is nice to know where our guess comes from.
+
+                        <span>
+                            \[\begin{aligned}
+                            \ \left[\begin{array}{l}
+                            \widetilde{y}_{t}\\
+                            \pi_{t}
+                            \end{array}\right]=\mathbf{A}_{T}\left[\begin{array}{l}
+                            E_{t}\{\widetilde{y}_{t+1}\}\\
+                            E_{t}\{\pi_{t+1}\}
+                            \end{array}\right]+\mathbf{B}_{T}u_{t}
+                            \end{aligned} \]
+                        <span>
+                        
+                        where
+                        
+                        <span>
+                            \[\begin{aligned}
+                            u_{t}\equiv\widehat{r}_{t}^{n}-v_{t}
+                            \end{aligned} \]
+                        <span>
+                        
+                        and
+
+                        <span>
+                            \[\begin{aligned}
+                            \mathbf{A}_{T}\equiv\Omega\left[\begin{array}{cc}
+                            \sigma & 1-\beta\phi_{\pi}\\
+                            \sigma\kappa & \kappa+\beta\sigma
+                            \end{array}\right];\mathbf{B_{T}}\equiv\Omega\left[\begin{array}{l}
+                            1\\
+                            \kappa
+                            \end{array}\right]
+                            \end{aligned} \]
+                        <span>
+
+                        and Uniqueness condition: $\kappa(\phi_{\pi}-1)>0$
+                        
+                        ---
+                        
+                        <!-- .slide: style="text-align: left;" -->
+                        ### Notes on the NKM solution
+
+                        The intuition is that the dynamics of the system requires that both variables have the initial value free, namely that after a shock
+                        both output gap and inflation can take the correct value that insures a unique solution. Both variables are jump variables like consumption
+                        was in the Ramsey model. In that model you had capital and capital had no free initial value, it was a state variable and those variable require
+                        an eigenvalue larger than unity in the formulation of the above system.
+
+                        
+
+
+                                        
+                        
+                    </script>
+                </section>
+
+            </div>
+		</div>
+
+		<script src="plugin/reveal.js"></script>
+        <script src="plugin/markdown.js"></script>
+        <script src="plugin/highlight.js"></script>
+        <script src="plugin/notes.js"></script>
+        <script src="plugin/plugin.js"></script>
+        <script src="plugin/math.js"></script>
+        <script src="plugin/plugin.js"></script>
+        <script src="plugin/menu.js"></script>
+        <script src="plugin/pdfexport.js"></script>
+
+		<script>
+
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+                center: true,
+                touch: true,
+                dependencies:
+                [
+                    { src: 'plugin/title-footer.js', async: true, callback: function() { title_footer.initialize(); } }
+                ],
+                math: {
+                    mathjax: 'https://cdn.jsdelivr.net/gh/mathjax/mathjax@2.7.8/MathJax.js',
+                    config: 'TeX-AMS_HTML-full',
+                    // pass other options into `MathJax.Hub.Config()`
+                    TeX: { Macros: { RR: "{\\bf R}" } }
+                    },
+        
+                chalkboard: {
+                    boardmarkerWidth: 3,
+                    chalkWidth: 3,
+                    chalkEffect: 0.0,
+                    src: null,
+                    readOnly: false,
+                    toggleChalkboardButton: { left: "90px", bottom: "30px", top: "auto", right: "auto" },
+                    toggleNotesButton: { left: "60px", bottom: "30px", top: "auto", right: "auto" },
+                    transition: 800,
+                    theme: "whiteboard",
+                    background: [ 'rgba(127,127,127,.1)' , path + 'img/blackboard.png' ],
+                    //grid: { color: 'rgb(50,50,10,0.5)', distance: 80, width: 0.5},
+                    eraser: { src: path + 'img/sponge.png', radius: 20},
+                    boardmarkers : [
+                            { color: 'rgba(255,255,255,0.5)', cursor: 'url(' + path + 'img/chalk-white.png), auto'},
+                            { color: 'rgba(30,144,255, 1)', cursor: 'url(' + path + 'img/boardmarker-blue.png), auto'},
+                            { color: 'rgba(220,20,60,1)', cursor: 'url(' + path + 'img/boardmarker-red.png), auto'},
+                            { color: 'rgba(50,205,50,1)', cursor: 'url(' + path + 'img/boardmarker-green.png), auto'},
+                            { color: 'rgba(255,140,0,1)', cursor: 'url(' + path + 'img/boardmarker-orange.png), auto'},
+                            { color: 'rgba(150,0,20150,1)', cursor: 'url(' + path + 'img/boardmarker-purple.png), auto'},
+                            { color: 'rgba(255,220,0,1)', cursor: 'url(' + path + 'img/boardmarker-yellow.png), auto'}
+                    ],
+                    chalks: [
+                            { color: 'rgba(255,255,255,0.5)', cursor: 'url(' + path + 'img/chalk-white.png), auto'},
+                            { color: 'rgba(96, 154, 244, 0.5)', cursor: 'url(' + path + 'img/chalk-blue.png), auto'},
+                            { color: 'rgba(237, 20, 28, 0.5)', cursor: 'url(' + path + 'img/chalk-red.png), auto'},
+                            { color: 'rgba(20, 237, 28, 0.5)', cursor: 'url(' + path + 'img/chalk-green.png), auto'},
+                            { color: 'rgba(220, 133, 41, 0.5)', cursor: 'url(' + path + 'img/chalk-orange.png), auto'},
+                            { color: 'rgba(220,0,220,0.5)', cursor: 'url(' + path + 'img/chalk-purple.png), auto'},
+                            { color: 'rgba(255,220,0,0.5)', cursor: 'url(' + path + 'img/chalk-yellow.png), auto'}
+                    ]
+                },
+                
+
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes,RevealMath, RevealMenu, RevealChalkboard, PdfExport]
+			});
+
+		</script>
+
+	</body>
+</html>
