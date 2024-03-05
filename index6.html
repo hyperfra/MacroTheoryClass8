@@ -1,0 +1,471 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>reveal.js - Class 8</title>
+
+		<link rel="stylesheet" href="plugin/reveal.css">
+        <link rel="stylesheet" href="plugin/black2.css" id="theme">
+        <link rel="stylesheet" href="plugin/monokai.css">
+        <link rel="stylesheet" href="plugin/title-footer.css">
+       
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<div class="slides">
+
+
+                <!-- Slides are separated by three dashes (quick 'n dirty regular expression) -->
+                <section data-markdown data-separator="\n---\n" data-separator-vertical="^\n--\n">
+                    <script type="text/template">
+                        <!-- .slide: style="text-align: left;" -->
+                        ## Macroeconomic Theory
+                        ### Francesco Franco - Nova SBE
+                        #### T3 2024 
+
+                        ---
+
+                        <!-- .slide: style="text-align: left;" -->
+                        ### The DSGE project
+                        #### Ingredients
+                        - intertemporal macroeconomic model built from microeconomic foundations (think of Ramsey model at the core, in fact here a simplified version without Capital but augmented with labor choice)
+                        - introduction of imperfect competition and nominal rigidities (and required changes in microfoundations of the model) and uncertainty in the form of shocks (in a simple way) 
+                        - NKM: build a model of fluctuations that combines the two
+                        - “Contrary” to the OLG and the Ramsey model we will not study the non-linear model but a linear approximation around the steady state: will look simple but require a lot of steps to get there
+
+                        ---
+
+                        <!-- .slide: style="text-align: left;" -->
+                        ### The Classical Model
+                        #### Household: No K but N choice 
+                        In the standard Ramsey model capital is central. However Capital changes slowly. Here we simplify and abstract from capital (no investment) but it is easily reintroduced. We assume that the households:
+
+                        $$\max E_{0}\sum_{t=0}^{\infty}\beta^{t}U\left(C_{t},N_{t}\right)$$
+
+                        subject to
+                        
+                        $$P_{t}C_{t}+Q_{t}A_{t}\leq A_{t-1}+W_{t}N_{t}+D_{t}$$
+
+                        and a no-Ponzi condition. $Q_{t}$ is the price on asset $A_{t}$ that deliver one unit next period in nominal terms.
+                        $D_{t}$ are dividends that will be equal to 0. $N_{t}$ is labor. 
+
+                        ---
+
+                        <!-- .slide: style="text-align: left;" -->
+                        ### The Classical Model
+                        #### Discrete time version
+
+                        - Do not be fooled by the timing, you could write $P_{t}C_{t}+Q_{t}A_{t+1}\leq A_{t}+W_{t}N_{t}+D_{t}$, the important thing is to understand what is chosen at time t. 
+                        - Notice that we have an expectation operator $E_{0}$ which is the mathematical expectation (a reason to adopt discrete time together with the easier empirical mapping)
+                        - You can also think of $Q_{t}=\frac{1}{1+i_{t}}$ as the nominal price of one unit of good next period.
+
+                        ---
+                        
+                        <!-- .slide: style="text-align: left;" -->
+                        #### The continuous time version of the classical model
+                       
+                        The continous time problem is
+                        
+                        $$\max E_{0}\int_{0}^{\infty}e^{-\rho t}U\left(C_{t},N_{t}\right)dt$$
+                        
+                        with budget constraint
+                        
+                        $$\dot{A}(t)=i(t)A(t)+W(t)N(t)+D(t)-P(t)C(t)$$ 
+                        
+                        and a NPG condition. We know how to solve the non-stochastic version. Use $U\left(C_{t},N_{t}\right)=\frac{C(t)^{1-\sigma}}{1-\sigma}-\frac{N(t)^{1+\phi}}{1+\phi}$.
+
+                        ---
+                        
+                        <!-- .slide: style="text-align: left;" -->
+                        #### The continuous time version of the classical model
+
+                        In the non stochastic model, the Hamiltonian is 
+                        
+                        $$H	=e^{-\rho t}\left(\frac{C(t)^{1-\sigma}}{1-\sigma}-\frac{N(t)^{1+\phi}}{1+\phi}+ \\
+                        \lambda(t)\left[i(t)A(t)+W(t)N(t)+D(t)-P(t)C(t)\right]\right)$$
+                        
+                        which implies the first order conditions
+                        
+                        $$H_{C}(t)	=0$$
+                        $$H_{N}(t)	=0$$
+                        $$\dot{\lambda}(t)-\rho\lambda(t)	=-H_{A}(t)$$
+                        $$lim_{t\rightarrow\infty}A(t)\lambda(t)e^{-\rho t}	=0$$
+                        
+                        ---
+
+                        <!-- .slide: style="text-align: left;" -->
+                    
+                        #### The continuous time version of the classical model
+                        
+                        Using the functional form the first two foc are 
+                        
+                        $$C(t)^{-\sigma}=\lambda(t)P(t)$$
+                        $$N(t)^{\phi}=W(t)\lambda(t)$$
+                        $$\dot{\lambda}(t)-\rho\lambda(t)=-i(t)\lambda(t)$$
+                        
+                        simplifying they become
+                        
+                        $$\frac{W(t)}{P(t)}=C(t)^{\sigma}N(t)^{\phi}$$ 
+                        $$\frac{\dot{C}(t)}{C(t)}=\frac{1}{\sigma}\left(i(t)-\frac{\dot{P}(t)}{P(t)}-\rho\right)$$
+                        
+                        ---
+
+                         <!-- .slide: style="text-align: left;" -->
+                    
+                        #### The continuous time version of the classical model
+                        ##### Firms and technology
+
+                        We are going to work with a technology that only depends on labor and technology
+
+                        $$Y\left(t\right)=Z\left(t\right)N\left(t\right)^{1-\alpha}$$
+                        
+                        where $Z_{t}$ is TFP
+
+                        $$\max\text{ }P\left(t\right)Y\left(t\right)-W\left(t\right)N\left(t\right)$$
+                        
+                        so FOC is
+                        
+                        $$\left(1-\alpha\right)Z\left(t\right)N\left(t\right)^{-\alpha}=\frac{W(t)}{P(t)}$$
+
+                        ---
+
+                         <!-- .slide: style="text-align: left;" -->
+                    
+                        #### The continuous time version of the classical model
+                        ##### Equilibrium
+
+                        Define inflation $\varPi\left(t\right)\equiv\frac{\dot{P}(t)}{P(t)}$ and the two prices in real terms
+                        $w\left(t\right)=\frac{W(t)}{P(t)}$ and $r\left(t\right)=i(t)-\varPi\left(t\right)$.
+                        We have Labor demand equals labor supply
+                        
+                        $$\left(1-\alpha\right)Z\left(t\right)N\left(t\right)^{-\alpha}=C(t)^{\sigma}N(t)^{\phi}$$
+
+                        Production equals demand (through the BC and $A_{t}=0$) and technology (all equations representing the supply)
+
+                        $$Y\left(t\right)=Z\left(t\right)N\left(t\right)^{1-\alpha}=C\left(t\right)$$
+                      
+                        so that
+                      
+                        $$N\left(t\right)^{\sigma\left(1-\alpha\right)+\alpha+\phi}=\left(1-\alpha\right)Z\left(t\right)^{1-\sigma}$$
+
+                        ---
+
+                         <!-- .slide: style="text-align: left;" -->
+                    
+                        #### The continuous time version of the classical model
+                        ##### Equilibrium
+
+                        From the so that 
+                        
+                        $$N\left(t\right)=\left(1-\alpha\right)^{\psi}Z\left(t\right)^{\left(1-\sigma\right)\psi}$$
+                        
+                        where $\psi=\frac{1}{\sigma\left(1-\alpha\right)+\alpha+\phi}$. Notice that:
+
+                        - Labor and therefore output and consumption only depend on $Z_{t}$
+
+                        - There is an inome effect of the Labor supply on the effect of productivity on labor. (The more income you have and consume the less you supply labor)
+                        
+                        
+                        ---
+
+                         <!-- .slide: style="text-align: left;" -->
+                    
+                        #### The continuous time version of the classical model
+                        ##### Equilibrium
+                        Now 
+                        
+                        $$C\left(t\right)=Y\left(t\right)=Z\left(t\right)N\left(t\right)^{1-\alpha}$$
+                        
+                        in every $t$ so 
+                        
+                        $$r\left(t\right)=\rho+\sigma\frac{\dot{C}(t)}{C(t)}$$
+                        
+                        is determined by the goods market. Namely it is the price that clears the goods market intertemporally.
+                        Notice that nothing depends on the nominal side of the economy ($i$ and $P$), we have nominal neutrality also known as classical dichotomy.
+                        In fact there is an infinite way of having $i$ and $\varPi$ coherent with the required real interest rate.
+                        
+                        ---
+
+                         <!-- .slide: style="text-align: left;" -->
+                    
+                        #### The continuous time version of the classical model
+                        ##### Stochasticity
+
+                        With $Z_{t}$ as parameter, the model is always in steady state with $r=\rho$.
+                        The continuous time model is less convenient to work with when we consider $Z$ to be stochastic.
+                        That is why we shift to discerete time. Also discrete time will be easier to the mapping with the macro data that are tipycally sampled at discrete intervals.
+
+                        ---
+
+                         <!-- .slide: style="text-align: left;" -->
+                    
+                        #### The discrete time version of the classical model
+                        ##### Stochasticity
+
+                        We will work with $z_{t}\equiv\log Z_{t}$ the TFP that follows an AR(1)
+                        
+                        $$z_{t}=\rho_{z}z_{t-1}+\varepsilon_{t}^{z}$$ 
+                        And we shift from perfect foresight to Rational expectations. Before the agents knew everything that was expected. Now it is the same but what they know is probabilistic. That is why we shift to discerete time. Also discrete time will be easier to the mapping with the macro data that are tipycally sampled at discrete intervals.
+
+
+                        ---
+
+                        <!-- .slide: style="text-align: left;" -->
+                        #### The Classical Model in discrete time
+                        ##### Lagrangean
+
+                        In discrete time the model is identical but now we have an expection operator $E_{t}$ which the mathematical expection
+                         conditional on information at time t. So the Lagrangean is
+                         
+                        $$L_{t}=E_{0}\sum_{t=0}^{\infty}\left[\beta^{t}U\left(C_{t},N_{t}\right)-\lambda_{t}\left(P_{t}C_{t}+Q_{t}A_{t}-A_{t-1}-W_{t}N_{t}-D_{t}\right)\right]$$
+
+
+                        and you take the first order conditions with respect to $A_{t}$, $N_{t}$ and $C_{t}$. 
+
+                        ---
+
+                        <!-- .slide: style="text-align: left;" -->
+                        #### The Classical Model in discrete time
+
+                        Again use $U(C_{t},N_{t})=\frac{C_{t}^{1-\sigma}}{1-\sigma}-\frac{N_{t}^{1+\varphi}}{1+\varphi}$ ,
+                        that implies the following FOC foc of the households
+                        
+                        $$\frac{W_{t}}{P_{t}}=C_{t}^{\sigma}N_{t}^{\phi}$$ 
+                        
+                        and
+
+                        $$Q_{t}=\beta E_{t}\left[\left(\frac{C_{t+1}}{C_{t}}\right)^{-\sigma}\frac{P_{t}}{P_{t+1}}\right]$$
+                        
+                        or using $Q_{t}=\frac{1}{1+i_{t}}$
+                        
+                        $$1=\beta E_{t}\left[\left(\frac{C_{t+1}}{C_{t}}\right)^{-\sigma}\left(1+i_{t}\right)\frac{P_{t}}{P_{t+1}}\right]$$
+                        
+                       
+                        ---
+
+                        <!-- .slide: style="text-align: left;" -->
+                        #### Households log-linear foc
+
+                        We want to focus on dynamics (business cycles), and we are going to work with log linear approximations 
+                        around the steady state. So consider the Euler equation:
+                        
+                        $$Q_{t}=\beta E_{t}\left\[\left(\frac{C_{t+1}}{C_{t}}\right)^{-\sigma}\frac{P_{t}}{P_{t+1}}\right\]$$
+
+                        explain $Q_{t,t+j}$
+
+                        
+                        and define $x_{t}=\ln X_{t}$, so that we have
+                        
+                        $$e^{q_{t}}=e^{ln\beta}E_{t}\left\[\left(\frac{e^{c_{t+1}}}{e^{c_{t}}}\right)^{-\sigma}e^{-\left(p_{t+1}-p_{t}\right)}\right\]$$
+                        
+                        $$1=E_{t}\left\[\exp\left(-\sigma\left(c_{t+1}-c_{t}\right)-q_{t}-\left(p_{t+1}-p_{t}\right)+\ln\beta\right)\right\]$$
+                        
+                        use $\pi_{t}\equiv p_{t}-p_{t-1},i_{t}\equiv-\log Q_{t},\rho\equiv-\log\beta$. 
+                        
+                        ---
+
+                        <!-- .slide: style="text-align: left;" -->
+                        #### Households log-linear foc
+
+                        
+                        In steady state you have
+                        $$i=\rho+\pi$$                  
+                        $$r=i-\pi=\rho$$
+                        
+                        Take the first-order Taylor expansion of $\exp\left(-\sigma\left(c_{t+1}-c_{t}\right)+i_{t}-\pi_{t+1}-\rho\right)$
+                        using $\Delta c_{t+1}=c_{t+1}-c_{t}$ 
+
+                        <span>
+                        \[\begin{aligned}
+                        \exp\left(-\sigma\Delta c_{t+1}+i_{t}-\pi_{t+1}-\rho\right)	\simeq 1+\left(i_{t}-i\right)-\sigma\Delta c_{t+1}-\left(\pi_{t+1}-\pi\right) 
+                        \end{aligned} \]
+                        <span>
+                        
+                        <span>
+                        \[\begin{aligned}
+                            =1+i_{t}-\sigma\Delta c_{t+1}-\pi_{t+1}-\rho
+                        \end{aligned} \]
+                        <span>
+
+                        so that inserting in the Euler condition you get:
+                        
+                        $$c_{t}=E_{t}\[c_{t+1}\]-\frac{1}{\sigma}(i_{t}-E_{t}\[\pi_{t+1}\]-\rho)$$
+                        
+                        ---
+
+                         <!-- .slide: style="text-align: left;" -->
+                         #### Households log-linear foc
+
+                         The other foc becomes:
+
+                         
+                        $$w_{t}-p_{t}=\sigma c_{t}+\varphi n_{t}$$
+                         
+                         which is a labor supply equation. 
+
+                        ---
+
+                        <!-- .slide: style="text-align: left;" -->
+                        #### Firms and technology
+
+                        We are going to work with a technology that only depends on labor and technology
+
+                        $$Y_{t}=Z_{t}N_{t}^{1-\alpha}$$
+
+                        with $z_{t}\equiv\log Z_{t}$ the TFP that follows an AR(1)
+                        
+                        $$z_{t}=\rho_{z}z_{t-1}+\varepsilon_{t}^{z}$$
+
+                        they maximize profits
+                        
+                        $$\max\text{ }P_{t}Y_{t}-W_{t}N_{t}$$
+
+                        ---
+
+                        <!-- .slide: style="text-align: left;" -->
+                        #### Firms log-linear foc
+                        the FOC is 
+                        
+                        $$\frac{W_{t}}{P_{t}}=(1-\alpha)Z_{t}N_{t}^{-\alpha}$$
+                        
+                        in log-linear terms is
+                        
+                        $$w_{t}-p_{t}=z_{t}-\alpha n_{t}+\log(1-\alpha)$$
+                        
+                        which is the labor demand.
+
+                        ---
+
+                        <!-- .slide: style="text-align: left;" -->
+                        #### The equilibrium
+
+                        Goods market clearing
+                        
+                        $$y_{t}=c_{t}$$
+
+                        Labor market clearing
+                        
+                        $$\sigma c_{t}+\varphi n_{t}=z_{t}-\alpha n_{t}+\log(1-\alpha)$$
+
+                        Asset market clearing (zero net supply)
+                        
+                        $$A_{t}=0$$
+                        
+                        and
+                        
+                        $$i_{t}-E_{t}\{\pi_{t+1}\}=\rho+\sigma E_{t}\{\Delta c_{t+1}\}$$
+
+                        Aggregate output
+                        
+                        $$y_{t}=z_{t}+(1-\alpha)n_{t}$$
+
+                        ---
+
+                        <!-- .slide: style="text-align: left;" -->
+                        #### The equilibrium solution
+
+                        You can directly solve this case (let us do it in class):
+                        
+                        $$n_{t}=\psi_{nz}z_{t}+\psi_{n}$$ 
+                        
+                        $$y_{t}=c_{t}=\psi_{yz}z_{t}+\psi_{y}$$
+                        
+                        and prices:
+                        
+                        $$r_{t}=\rho-\sigma\psi_{yz}(1-\rho_{z})z_{t}$$
+                        
+                        $$\omega_{t}\equiv w_{t}-p_{t}=\psi_{\omega z}z_{t}+\psi_{\omega}$$
+
+                        ---
+
+                        <!-- .slide: style="text-align: left;" -->
+                        #### Neutrality of the nominal side/ classical dichotomy
+
+                        As expected the allocations do not depend on the fluctuations of the monetary side,
+                        even if you had a monetary authority controlling $i$ it would not affect the allocations: neutrality.
+                        The only thing that monetary policy does is potentially to determine the nominal variables.
+                        Potentially because not every interest rate monetary policy rule determines the nominal variables. 
+
+                                        
+                        
+                    </script>
+                </section>
+
+            </div>
+		</div>
+
+		<script src="plugin/reveal.js"></script>
+        <script src="plugin/markdown.js"></script>
+        <script src="plugin/highlight.js"></script>
+        <script src="plugin/notes.js"></script>
+        <script src="plugin/plugin.js"></script>
+        <script src="plugin/math.js"></script>
+        <script src="plugin/plugin.js"></script>
+        <script src="plugin/menu.js"></script>
+        <script src="plugin/pdfexport.js"></script>
+
+		<script>
+
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+                center: true,
+                touch: true,
+                dependencies:
+                [
+                    { src: 'plugin/title-footer.js', async: true, callback: function() { title_footer.initialize(); } }
+                ],
+                math: {
+                    mathjax: 'https://cdn.jsdelivr.net/gh/mathjax/mathjax@2.7.8/MathJax.js',
+                    config: 'TeX-AMS_HTML-full',
+                    // pass other options into `MathJax.Hub.Config()`
+                    TeX: { Macros: { RR: "{\\bf R}" } }
+                    },
+        
+                chalkboard: {
+                    boardmarkerWidth: 3,
+                    chalkWidth: 3,
+                    chalkEffect: 0.0,
+                    src: null,
+                    readOnly: false,
+                    toggleChalkboardButton: { left: "90px", bottom: "30px", top: "auto", right: "auto" },
+                    toggleNotesButton: { left: "60px", bottom: "30px", top: "auto", right: "auto" },
+                    transition: 800,
+                    theme: "whiteboard",
+                    background: [ 'rgba(127,127,127,.1)' , path + 'img/blackboard.png' ],
+                    //grid: { color: 'rgb(50,50,10,0.5)', distance: 80, width: 0.5},
+                    eraser: { src: path + 'img/sponge.png', radius: 20},
+                    boardmarkers : [
+                            { color: 'rgba(255,255,255,0.5)', cursor: 'url(' + path + 'img/chalk-white.png), auto'},
+                            { color: 'rgba(30,144,255, 1)', cursor: 'url(' + path + 'img/boardmarker-blue.png), auto'},
+                            { color: 'rgba(220,20,60,1)', cursor: 'url(' + path + 'img/boardmarker-red.png), auto'},
+                            { color: 'rgba(50,205,50,1)', cursor: 'url(' + path + 'img/boardmarker-green.png), auto'},
+                            { color: 'rgba(255,140,0,1)', cursor: 'url(' + path + 'img/boardmarker-orange.png), auto'},
+                            { color: 'rgba(150,0,20150,1)', cursor: 'url(' + path + 'img/boardmarker-purple.png), auto'},
+                            { color: 'rgba(255,220,0,1)', cursor: 'url(' + path + 'img/boardmarker-yellow.png), auto'}
+                    ],
+                    chalks: [
+                            { color: 'rgba(255,255,255,0.5)', cursor: 'url(' + path + 'img/chalk-white.png), auto'},
+                            { color: 'rgba(96, 154, 244, 0.5)', cursor: 'url(' + path + 'img/chalk-blue.png), auto'},
+                            { color: 'rgba(237, 20, 28, 0.5)', cursor: 'url(' + path + 'img/chalk-red.png), auto'},
+                            { color: 'rgba(20, 237, 28, 0.5)', cursor: 'url(' + path + 'img/chalk-green.png), auto'},
+                            { color: 'rgba(220, 133, 41, 0.5)', cursor: 'url(' + path + 'img/chalk-orange.png), auto'},
+                            { color: 'rgba(220,0,220,0.5)', cursor: 'url(' + path + 'img/chalk-purple.png), auto'},
+                            { color: 'rgba(255,220,0,0.5)', cursor: 'url(' + path + 'img/chalk-yellow.png), auto'}
+                    ]
+                },
+                
+
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes,RevealMath, RevealMenu, RevealChalkboard, PdfExport]
+			});
+
+		</script>
+
+	</body>
+</html>
